@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Title -->
+    <title>bookmyshow.com</title>
+
+    <!-- Favicon -->
+    <!--<link rel="icon" href="img/core-img/favicon.ico">-->
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+  <!-- ##### Preloader ##### -->
+  <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="circle-preloader">
+            <img src="img/core-img/log.jpg" alt="">
+            <div class="foode-preloader">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- Top Header Area -->
+        
+
+        <!-- Logo Area -->
+        <div class="logo-area text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Nav brand -->
+                        <a href="index.html" class="nav-brand"><img src="img/core-img/log.jpg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="foode-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar" id="foodeNav">
+
+                        <!-- Nav brand -->
+                        <a href="index.html" class="nav-brand"><img src="img/core-img/log1.png" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                 
+                                    
+                                    
+                                    <li><a href="watchhist.html">Watch History</a></li>
+                                    <li><a href="user.html">My Profile</a></li>
+                                    <li><a href="#footy">Contact Us</a></li>
+                                    <li><a href="landing.html">Sign Out</a></li>
+                                </ul>
+
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <img src="img/core-img/breadcrumb-line.png" alt="">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Viewing History</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <div class="typography-content-area section-padding-0-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div class="section-heading">
+                        <h2>Viewing History</h2>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+
+                    <!-- HISTORY -->
+                    <div class="foode-image">
+                        <div class="row">
+                            <!--LIST-->
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Item No.</th>
+                                        <th>Cinema Name</th>
+                                        <th>Movie List</th>
+                                        <th>Rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <% watch1.forEach(function(watch) { %>
+                                    <tr>
+                                        <td><%= watch.id %></td>
+                                        <td><%= watch.cine_n %></td>
+                                        <td><%= watch.movie_n %></td>
+                                        <td>
+                                            <div>
+                                                <div class="stars">
+                                                    <form action="">
+                                                        <input class="star star-5" id="star-51" type="radio" name="star" />
+                                                        <label class="star star-5" for="star-51"></label>
+                                                        <input class="star star-4" id="star-41" type="radio" name="star" />
+                                                        <label class="star star-4" for="star-41"></label>
+                                                        <input class="star star-3" id="star-31" type="radio" name="star" />
+                                                        <label class="star star-3" for="star-31"></label>
+                                                        <input class="star star-2" id="star-21" type="radio" name="star" />
+                                                        <label class="star star-2" for="star-21"></label>
+                                                        <input class="star star-1" id="star-11" type="radio" name="star" />
+                                                        <label class="star star-1" for="star-11"></label>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <% }); %>
+                                    
+                                        
+                                    
+                        </tbody>
+                        </table>
+
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+
+    <!-- ##### Cinema Area Start ##### -->
+    <div class="follow-us-instagram">
+
+        <div class="container">
+            <img class="footer-curve" src="img/core-img/foo-curve.png" alt="">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h2>
+                            A Look At Cinemas...
+                        </h2>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="instagram-slides owl-carousel">
+                        <!-- Single cinema Slide -->
+                        <div class="single-instagram-slide">
+                            <img src="img/cinefoot/afshan.jpg" alt="">
+                            <a href="https://www.facebook.com/AlfalahTheater/"><i class=" fa fa-comments"></i> Follow Afshan</a>
+                        </div>
+
+                        <!-- Single cinema Slide -->
+                        <div class="single-instagram-slide">
+                            <img src="img/cinefoot/universal.jpg" alt="">
+                            <a href="https//www.universalcinemas.com/"><i class="fa fa-comments"></i>Follow Universal Cinema</a>
+                        </div>
+
+                        <!-- Single cinema Slide -->
+                        <div class="single-instagram-slide">
+                            <img src="img/cinefoot/arena.jpg" alt="">
+                            <a href="https://thearena.com.pk/"><i class="fa fa-comments"></i>Follow Arena Cinema</a>
+                        </div>
+
+                        <!-- Single cinema Slide -->
+                        <div class="single-instagram-slide">
+                            <img src="img/cinefoot/atrium.jpg" alt="">
+                            <a href="https://www.facebook.com/atriumcinemas/"><i class="fa fa-comments"></i>Follow Atrium Cinema</a>
+                        </div>
+
+                        <!-- Single cinema Slide -->
+                        <div class="single-instagram-slide">
+                            <img src="img/cinefoot/capri.jpg" alt="">
+                            <a href="https://capricinema.com.pk/"><i class="fa fa-comments"></i>Follow Capri Cinema</a>
+                        </div>
+
+                        <!-- Single cinema Slide -->
+                        <div class="single-instagram-slide">
+                            <img src="img/cinefoot/Alfalah.jpg" alt="">
+                            <a href="https://www.facebook.com/AlfalahTheater/"><i class="fa fa-comments"></i>Follow Al-Falah Cinema</a>
+                        </div>
+                        <!-- Single cinema Slide -->
+                        <div class="single-instagram-slide">
+                            <img src="img/cinefoot/cine-star.jpg" alt="">
+                            <a href="http://www.cinestar.com.pk/"><i class="fa fa-comments"></i>Follow Cine-Star</a>
+                        </div>
+                        <!-- Single cinema Slide -->
+                        <div class="single-instagram-slide">
+                            <img src="img/cinefoot/cinegold.jpg" alt="">
+                            <a href="https://www.cinegoldplex.com/"><i class="fa fa-comments"></i>Follow CineGoldPlex</a>
+                        </div>
+                        <!-- Single cinema Slide -->
+                        <div class="single-instagram-slide">
+                            <img src="img/cinefoot/soxoworld.jpg" alt="">
+                            <a href="http://www.sozocinema.com/"><i class="fa fa-comments"></i>Follow sozo world</a>
+                        </div>
+                        <!-- Single cinema Slide -->
+                        <div class="single-instagram-slide">
+                            <img src="img/cinefoot/super.jpg" alt="">
+                            <a href="http://supercinema.com.pk/">
+                                <i class="fa fa-comments"></i>
+                                Follow Super Cinema
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### cinema Area End ##### -->
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Footer Curve Line -->
+                    <img class="footer-curve" src="img/core-img/foo-curve.png" alt="">
+                    <!-- Footer Social Info -->
+                    <div id="footy" class="footer-social-info d-flex align-items-center justify-content-between">
+                        <p>
+                            &nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span><i class="fa fa-mail-forward" style="color:goldenrod"></i> </span>
+                            <span>Email us :</span>
+                            <span>
+                                <a href="#" class="post-title">
+                                    <h4>team_coders_345@gmail.com</h4>
+                                </a>
+                            </span>
+                        </p>
+                    </div>
+                    <!-- Footer Curve Line -->
+                    <img class="footer-curve" src="img/core-img/foo-curve.png" alt="">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="copywrite-text">
+                        <p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area Start ##### -->
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+    <script>
+ // When the user clicks on <div>, open the popup
+ function myFunction() {
+ var popup = document.getElementById("myPopup");
+ popup.classList.toggle("show");
+ }
+    </script>
+
+</body>
+
+</html>

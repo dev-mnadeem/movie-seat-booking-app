@@ -1,0 +1,35 @@
+{
+  "name": "movie_ticketing",
+  "version": "1.0.0",
+  "description": "will help in booking movies at different cinemas",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Muntaha",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^6.2.4",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "ejs": "^2.6.1",
+    "ejs-lint": "^0.3.0",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "jade": "^1.11.0",
+    "mongodb": "^3.1.8",
+    "mongoose": "^5.3.2",
+    "node-base64-image": "^1.0.5",
+    "path": "^0.12.7",
+    "prettier": "^1.14.3",
+    "pug": "^2.0.3",
+    "request": "^2.88.0"
+  },
+  "engines": {
+    "node": "~6.11.1",
+    "npm": "~6.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.5"
+  }
+}
