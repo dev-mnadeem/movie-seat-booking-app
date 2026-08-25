@@ -1,0 +1,30 @@
+# The ticketing app and its database.
+#
+# The connection string used to be hardcoded in the source, credentials
+# included. It comes from the environment now.
+services:
+  mongo:
+    image: mongo:6.0
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 5s
+
+  web:
+    build: { context: ., dockerfile: Dockerfile }
+    image: movie-ticketing:local
+    container_name: ticketing_web
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/ticketing
+      PORT: 3000
+    ports: ["3700:3000"]
+    depends_on:
+      mongo: { condition: service_healthy }
+
+volumes:
+  mongo-data:
