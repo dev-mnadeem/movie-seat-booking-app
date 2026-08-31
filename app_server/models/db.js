@@ -1,14 +1,12 @@
 var mongoose = require("mongoose");
-var dbURI = "mongodb://localhost:27017/data";
 
-if (process.env.NODE_ENV === "production") {
-  //just to test I have placed this url
-  dbURI = "mongodb://shamsa:shamsa123@ds263571.mlab.com:63571/loc8r";
-}
-mongoose.connect(
-  dbURI,
-  { useNewUrlParser: true }
-);
+// The production URI used to be a hardcoded connection string complete with
+// username and password, committed in plain text. It pointed at mLab, which
+// shut down in 2018, so the host is long gone — but the credential is still in
+// this repository's git history and should be treated as disclosed.
+var dbURI = process.env.MONGODB_URI || "mongodb://localhost:27017/ticketing";
+
+mongoose.connect(dbURI);
 mongoose.Promise = global.Promise;
 //on connection
 mongoose.connection.on("connected", () => {
