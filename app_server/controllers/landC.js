@@ -1,3 +1,8 @@
+// mongoose 7 removed callback support from model methods; these are promises
+// now. The old driver (mongoose 5 / mongodb 3.1) also spoke the OP_QUERY
+// opcode, which MongoDB 6 removed — every write failed with
+// "Unsupported OP_QUERY command: insert" while the pages still rendered, so
+// the application looked like it worked and persisted nothing.
 var mongoose = require("mongoose");
 var Cinema = mongoose.model("Cinema");
 
@@ -59,14 +64,13 @@ module.exports.createCinema = function(req, res) {
           ]
         }
       ]
-    },
-    function(err, cinema) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(cinema);
-        res.render("index.html", { cinemaData: cinema });
-      }
     }
-  );
+  )
+    .then((cinema) => {
+      res.render("index.html", { cinemaData: cinema });
+    })
+    .catch((err) => {
+      console.error("failed to create cinema:", err.message);
+      res.status(500).render("index.html", { cinemaData: null, error: err.message });
+    });
 };
