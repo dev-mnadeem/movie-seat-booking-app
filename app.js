@@ -25,40 +25,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", route);
 global.globalString = "This can be accessed anywhere!";  
 //app.use("/api", route1);
-//connect to mongodb
-//mongoose.connect("mongodb://localhost:27017/ticketing_web");
-/*var dbURI = "mongodb://localhost:27017/ticketing_web";
+// Database setup lives in app_server/models/db.js, which is required at the
+// top of this file. A duplicate copy of the connection logic sat here,
+// commented out — including a second `mongoose.connect()` call and a hardcoded
+// connection string.
 
-if (process.env.NODE_ENV === "production") {
-  //just to test I have placed this url
-   //dbURI = "mongodb://shamsa:shamsa123@ds263571.mlab.com:63571/loc8r";
-}
-mongoose.connect(
-  dbURI,
-  { useNewUrlParser: true }
-);
-
-//on connection
-mongoose.connection.on("connected", () => {
-  console.log("connected to db mongodb");
-});
-
-//on error
-mongoose.connection.on("error", err => {
-  if (err) {
-    console.log("error in db connection" + err);
-  }
-});
-*/
-//testing server
-/*
-app.get("/", (req, res) => {
-  res.send("foobar");
-});
-app.listen(port, () => {
-  console.log("server started at port no :" + port);
-});
-*/
 var port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
 
