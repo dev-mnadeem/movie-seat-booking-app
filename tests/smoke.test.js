@@ -1,19 +1,4 @@
-/**
- * Smoke tests.
- *
- * These are deliberately modest. Most of this application's controllers render
- * hardcoded values — `res.render("user.html", { user_n: "Mark", city:
- * "Karachi" })` — so unit tests over them would assert that a constant equals
- * itself. That is test theatre, and it would make the suite look like evidence
- * of quality it does not have.
- *
- * What is worth pinning is the set of things that were actually broken: that
- * the app boots against a modern MongoDB, that every route responds rather
- * than throwing, that a GET does not write to the database, and that no
- * connection string is hardcoded in the source.
- */
-
-const { test, describe, before, after } = require("node:test");
+const { test, describe, after } = require("node:test");
 const assert = require("node:assert");
 const fs = require("node:fs");
 const path = require("node:path");
@@ -33,12 +18,15 @@ describe("routes respond", () => {
     "/payment.html",
     "/watchhist.html",
     "/cinemalist.html",
+    "/index.html/demo",
+    "/select.html/demo",
+    "/paymentsummary.html?data=2",
   ];
 
   for (const route of routes) {
     test(`GET ${route} does not error`, async () => {
       const { status } = await get(route);
-      assert.ok(status < 500, `${route} returned ${status}`);
+      assert.strictEqual(status, 200, `${route} returned ${status}`);
     });
   }
 });
@@ -122,4 +110,21 @@ async function countUsers() {
 after(async () => {
   const mongoose = require("mongoose");
   if (mongoose.connection.readyState === 1) await mongoose.disconnect();
+});
+
+
+describe('read-only demonstration routes', () => {
+ test('detail and summary views do not create cinemas or payment history', async () => {
+  const mongoose = require('mongoose');
+  if (mongoose.connection.readyState !== 1) await mongoose.connect(process.env.MONGODB_URI);
+  const counts = async () => Promise.all(['cinemas','histories'].map(name=>mongoose.connection.db.collection(name).countDocuments()));
+  const before = await counts();
+  await get('/index.html/demo');await get('/paymentsummary.html?data=2');
+  assert.deepStrictEqual(await counts(), before);
+ });
+ test('selection routes respond and malformed quantities are rejected', async () => {
+  const result = await fetch(`${BASE}/pop.html/demo`,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'seat=A1,A2',redirect:'manual'});
+  assert.strictEqual(result.status,302);
+  assert.strictEqual((await get('/paymentsummary.html?data=-1')).status,400);
+ });
 });

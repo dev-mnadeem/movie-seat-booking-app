@@ -1,9 +1,3 @@
-module.exports.nothingp = function(req, res) {
-  
-    globalString+= req.params.cinema_name;
-    console.log(globalString);
-}
-
 module.exports.nothing5 = function(req, res) {
     
     res.render("select.html", {
@@ -37,3 +31,4 @@ module.exports.nothing5 = function(req, res) {
     });
     
 };
+module.exports.nothingp = module.exports.nothing5;

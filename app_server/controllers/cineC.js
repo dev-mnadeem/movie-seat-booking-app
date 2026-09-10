@@ -1,11 +1,3 @@
-var mongoose = require("mongoose");
-var payment = mongoose.model("history");
-var request= require("request");
-
-module.exports.savePop1=function(req,res)
-{
-    
-};
 module.exports.nothing4 = function(req, res) {
     res.render("cinemalist.html", {
         cinema1:
@@ -55,3 +47,4 @@ module.exports.nothing4 = function(req, res) {
         
     });
 };
+module.exports.savePop1 = module.exports.nothing4;

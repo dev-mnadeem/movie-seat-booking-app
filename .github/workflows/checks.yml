@@ -1,0 +1,26 @@
+name: Cinema route checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  routes:
+    runs-on: ubuntu-latest
+    services:
+      mongo:
+        image: mongo:7.0
+        ports: ['27017:27017']
+    env:
+      MONGODB_URI: mongodb://127.0.0.1:27017/movie_ci
+      APP_URL: http://127.0.0.1:3000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Start local app
+        run: |
+          npm start > /tmp/movie-app.log 2>&1 &
+          node -e "(async()=>{for(let n=0;n<60;n++){try{if((await fetch('http://127.0.0.1:3000/health')).ok)return}catch{}await new Promise(r=>setTimeout(r,500))}process.exit(1)})()"
+      - run: npm test

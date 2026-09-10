@@ -5,24 +5,32 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "node --test tests/"
+    "test": "node --test tests/*.test.js"
   },
   "author": "Muhammad Nadeem",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.3",
     "cors": "^2.8.4",
-    "ejs": "^2.6.1",
-    "express": "^4.16.3",
-    "mongoose": "^8.8.3",
-    "path": "^0.12.7",
-    "request": "^2.88.0"
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mongoose": "^8.8.3"
   },
   "engines": {
-    "node": "~6.11.1",
-    "npm": "~6.4.1"
+    "node": ">=22 <23"
   },
   "devDependencies": {
-    "nodemon": "^1.18.5"
-  }
+    "nodemon": "^3.1.10"
+  },
+  "homepage": "https://github.com/dev-mnadeem/movie-seat-booking-app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-mnadeem/movie-seat-booking-app.git"
+  },
+  "maintainers": [
+    {
+      "name": "Muhammad Nadeem",
+      "url": "https://github.com/dev-mnadeem"
+    }
+  ]
 }
